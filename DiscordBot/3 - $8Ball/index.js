@@ -9,10 +9,19 @@ client.once("ready", ()=>{
 
 client.on("messageCreate", (message) => {
 
-    if (message.content.toLowerCase() === "$ping"){
-        message.reply("Pong!")
-    }
+    
+    if (message.content.startsWith("$")){
 
+        const msg = message.content.toLowerCase()
+
+        if (msg === "$ping"){
+            message.reply("Pong!")
+        } else if (msg === "$8ball"){
+            message.reply(["Yes", "No", "Maybe"][Math.floor(Math.random()*3)])
+        }
+        
+    }
+    
 
 })
 
